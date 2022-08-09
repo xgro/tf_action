@@ -8,8 +8,8 @@ module "lambda" {
   handler       = "app.handler"
   runtime       = "nodejs14.x"
   timeout       = 6
-  
-  environment_variables =  {
+
+  environment_variables = {
     JWT_SECRET = data.aws_ssm_parameter.ssm.value
   }
 
@@ -22,7 +22,9 @@ module "lambda" {
   }
 }
 
-
+data "aws_ssm_parameter" "ssm" {
+  name = "JWT_SECRET"
+}
 
 # # 람다 트리거 연결하는 리소스
 # # Attach API Gateway to Lambda 

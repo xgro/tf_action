@@ -7,6 +7,15 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "xgro-test-tfstate"
+    key    = "terraform.tfstate"
+    region = "ap-northeast-2"
+    # dynamodb_table  = aws_dynamodb_table.terraform_state_lock.id
+    dynamodb_table = "terraform-lock"
+    encrypt        = true
+  }
+
   required_version = ">= 1.0.11"
 }
 

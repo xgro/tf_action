@@ -3,7 +3,7 @@ module "lambda" {
   source  = "terraform-aws-modules/lambda/aws"
   version = "3.3.1"
   # insert the 32 required variables here
-  function_name = "authorizer2"
+  function_name = "authorizer3"
   description   = "My awesome lambda function"
   handler       = "app.handler"
   runtime       = "nodejs14.x"

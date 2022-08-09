@@ -20,10 +20,10 @@ terraform {
 }
 
 # AWS provider configuration
-provider "aws" {
-  profile = "aws"
-  region  = "ap-northeast-2"
-}
+# provider "aws" {
+#   profile = "aws"
+#   region  = "ap-northeast-2"
+# }
 
 data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}

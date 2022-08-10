@@ -1,26 +1,26 @@
 # Lambda 선언
-module "lambda" {
-  source  = "terraform-aws-modules/lambda/aws"
-  version = "3.3.1"
-  # insert the 32 required variables here
-  function_name = "authorizer3"
-  description   = "My awesome lambda function"
-  handler       = "app.handler"
-  runtime       = "nodejs14.x"
-  timeout       = 6
+# module "lambda" {
+#   source  = "terraform-aws-modules/lambda/aws"
+#   version = "3.3.1"
+#   # insert the 32 required variables here
+#   function_name = "authorizer3"
+#   description   = "My awesome lambda function"
+#   handler       = "app.handler"
+#   runtime       = "nodejs14.x"
+#   timeout       = 6
 
-  environment_variables = {
-    JWT_SECRET = data.aws_ssm_parameter.ssm.value
-  }
+#   environment_variables = {
+#     JWT_SECRET = data.aws_ssm_parameter.ssm.value
+#   }
 
-  # policy_json   = data.aws_iam_policy_document.lambda_policy_document.json
-  source_path                   = "./authorizer"
-  attach_cloudwatch_logs_policy = true
+#   # policy_json   = data.aws_iam_policy_document.lambda_policy_document.json
+#   source_path                   = "./authorizer"
+#   attach_cloudwatch_logs_policy = true
 
-  tags = {
-    Name = "authorizer_lambda"
-  }
-}
+#   tags = {
+#     Name = "authorizer_lambda"
+#   }
+# }
 
 data "aws_ssm_parameter" "ssm" {
   name = "JWT_SECRET"

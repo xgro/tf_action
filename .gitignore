@@ -29,5 +29,5 @@ override.tf.json
 # example: *tfplan*
 
 builds/
-init/
+backend/
 .terraform.lock.hcl

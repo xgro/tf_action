@@ -1,10 +1,10 @@
 # S3 bucket for backend
-resource "aws_s3_bucket" "for_tfstate" {
-  bucket = "xgro-test-tfstate"
+resource "aws_s3_bucket" "tfstate" {
+  bucket = "xgro-tfstate"
 }
 
 resource "aws_s3_bucket_versioning" "tfstate" {
-  bucket = aws_s3_bucket.for_tfstate.bucket
+  bucket = aws_s3_bucket.tfstate.bucket
 
   versioning_configuration {
     status = "Enabled"
